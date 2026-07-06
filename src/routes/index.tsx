@@ -1,4 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { lazy, Suspense, useEffect, useState } from "react";
+
+const HeroBlob = lazy(() => import("@/components/HeroBlob"));
+
+function ClientHeroBlob() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+  return (
+    <Suspense fallback={null}>
+      <HeroBlob />
+    </Suspense>
+  );
+}
 
 export const Route = createFileRoute("/")({
   component: Index,
