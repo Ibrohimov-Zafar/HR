@@ -106,9 +106,9 @@ function Index() {
                   <span className="font-label-md text-label-md text-text-secondary">interview_ai_engine.v2</span>
                 </div>
                 <div className="relative h-80 w-full rounded-2xl overflow-hidden bg-surface-container-lowest flex items-center justify-center">
-                  <div className="absolute inset-0 mesh-ai-overlay" />
-                  <div className="relative z-10 w-32 h-32 rounded-full btn-primary flex items-center justify-center shadow-2xl">
-                    <Icon name="graphic_eq" className="text-6xl" fill />
+                  <div className="absolute inset-0 mesh-ai-overlay opacity-60" />
+                  <div className="absolute inset-0">
+                    <ClientHeroBlob />
                   </div>
                 </div>
                 <div className="mt-6 grid grid-cols-2 gap-4">
