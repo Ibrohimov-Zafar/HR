@@ -31,6 +31,8 @@
   --color-border-subtle: var(--border-subtle);
   --color-border: var(--border-subtle);
 
+  --font-editorial: "Cormorant Garamond", "Playfair Display", serif;
+  --font-inter: "Inter", system-ui, sans-serif;
   --spacing-margin-desktop: 4rem;
   --container-container-max: 1280px;
 }
@@ -64,9 +66,17 @@
     color: var(--color-foreground);
     font-family: 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    max-width: 100%;
   }
 }
 
+@utility font-editorial {
+  font-family: var(--font-editorial);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
 @utility font-headline-xl { font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
 @utility font-headline-lg { font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: -0.015em; }
 @utility font-headline-md { font-family: 'Space Grotesk', sans-serif; font-weight: 600; letter-spacing: -0.01em; }
@@ -108,7 +118,29 @@
     radial-gradient(circle at 80% 70%, oklch(0.78 0.14 320 / 35%), transparent 55%),
     radial-gradient(circle at 50% 50%, oklch(0.82 0.14 145 / 25%), transparent 60%);
 }
+@utility hero-section-bg {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 15% 50%, oklch(0.68 0.18 210 / 12%), transparent 70%),
+    radial-gradient(ellipse 50% 50% at 85% 45%, oklch(0.78 0.14 320 / 8%), transparent 65%);
+}
 @utility pricing-card-popular {
   border-color: oklch(0.68 0.18 210 / 50%);
   background: linear-gradient(180deg, oklch(0.68 0.18 210 / 10%), oklch(1 0 0 / 2%));
+}
+
+@keyframes blob-morph {
+  0%, 100% {
+    border-radius: 58% 42% 62% 38% / 48% 55% 45% 52%;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    border-radius: 42% 58% 38% 62% / 55% 45% 52% 48%;
+    transform: scale(1.04) rotate(2deg);
+  }
+}
+
+@utility blob-morph {
+  border-radius: 58% 42% 62% 38% / 48% 55% 45% 52%;
+  animation: blob-morph 7s ease-in-out infinite;
 }

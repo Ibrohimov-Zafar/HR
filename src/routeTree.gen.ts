@@ -9,38 +9,246 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TechnicalRouteImport } from './routes/technical'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as ResumeRouteImport } from './routes/resume'
+import { Route as InterviewRouteImport } from './routes/interview'
+import { Route as HistoryRouteImport } from './routes/history'
+import { Route as GithubRouteImport } from './routes/github'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as AnalyticsRouteImport } from './routes/analytics'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TechnicalIndexRouteImport } from './routes/technical.index'
+import { Route as InterviewIndexRouteImport } from './routes/interview.index'
+import { Route as TechnicalProblemIdRouteImport } from './routes/technical.$problemId'
+import { Route as InterviewSessionRouteImport } from './routes/interview.session'
 
+const TechnicalRoute = TechnicalRouteImport.update({
+  id: '/technical',
+  path: '/technical',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResumeRoute = ResumeRouteImport.update({
+  id: '/resume',
+  path: '/resume',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InterviewRoute = InterviewRouteImport.update({
+  id: '/interview',
+  path: '/interview',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HistoryRoute = HistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GithubRoute = GithubRouteImport.update({
+  id: '/github',
+  path: '/github',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnalyticsRoute = AnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TechnicalIndexRoute = TechnicalIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => TechnicalRoute,
+} as any)
+const InterviewIndexRoute = InterviewIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => InterviewRoute,
+} as any)
+const TechnicalProblemIdRoute = TechnicalProblemIdRouteImport.update({
+  id: '/$problemId',
+  path: '/$problemId',
+  getParentRoute: () => TechnicalRoute,
+} as any)
+const InterviewSessionRoute = InterviewSessionRouteImport.update({
+  id: '/session',
+  path: '/session',
+  getParentRoute: () => InterviewRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
+  '/dashboard': typeof DashboardRoute
+  '/github': typeof GithubRoute
+  '/history': typeof HistoryRoute
+  '/interview': typeof InterviewRouteWithChildren
+  '/resume': typeof ResumeRoute
+  '/settings': typeof SettingsRoute
+  '/technical': typeof TechnicalRouteWithChildren
+  '/interview/session': typeof InterviewSessionRoute
+  '/technical/$problemId': typeof TechnicalProblemIdRoute
+  '/interview/': typeof InterviewIndexRoute
+  '/technical/': typeof TechnicalIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
+  '/dashboard': typeof DashboardRoute
+  '/github': typeof GithubRoute
+  '/history': typeof HistoryRoute
+  '/resume': typeof ResumeRoute
+  '/settings': typeof SettingsRoute
+  '/interview/session': typeof InterviewSessionRoute
+  '/technical/$problemId': typeof TechnicalProblemIdRoute
+  '/interview': typeof InterviewIndexRoute
+  '/technical': typeof TechnicalIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
+  '/dashboard': typeof DashboardRoute
+  '/github': typeof GithubRoute
+  '/history': typeof HistoryRoute
+  '/interview': typeof InterviewRouteWithChildren
+  '/resume': typeof ResumeRoute
+  '/settings': typeof SettingsRoute
+  '/technical': typeof TechnicalRouteWithChildren
+  '/interview/session': typeof InterviewSessionRoute
+  '/technical/$problemId': typeof TechnicalProblemIdRoute
+  '/interview/': typeof InterviewIndexRoute
+  '/technical/': typeof TechnicalIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/analytics'
+    | '/dashboard'
+    | '/github'
+    | '/history'
+    | '/interview'
+    | '/resume'
+    | '/settings'
+    | '/technical'
+    | '/interview/session'
+    | '/technical/$problemId'
+    | '/interview/'
+    | '/technical/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/analytics'
+    | '/dashboard'
+    | '/github'
+    | '/history'
+    | '/resume'
+    | '/settings'
+    | '/interview/session'
+    | '/technical/$problemId'
+    | '/interview'
+    | '/technical'
+  id:
+    | '__root__'
+    | '/'
+    | '/analytics'
+    | '/dashboard'
+    | '/github'
+    | '/history'
+    | '/interview'
+    | '/resume'
+    | '/settings'
+    | '/technical'
+    | '/interview/session'
+    | '/technical/$problemId'
+    | '/interview/'
+    | '/technical/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AnalyticsRoute: typeof AnalyticsRoute
+  DashboardRoute: typeof DashboardRoute
+  GithubRoute: typeof GithubRoute
+  HistoryRoute: typeof HistoryRoute
+  InterviewRoute: typeof InterviewRouteWithChildren
+  ResumeRoute: typeof ResumeRoute
+  SettingsRoute: typeof SettingsRoute
+  TechnicalRoute: typeof TechnicalRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/technical': {
+      id: '/technical'
+      path: '/technical'
+      fullPath: '/technical'
+      preLoaderRoute: typeof TechnicalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resume': {
+      id: '/resume'
+      path: '/resume'
+      fullPath: '/resume'
+      preLoaderRoute: typeof ResumeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/interview': {
+      id: '/interview'
+      path: '/interview'
+      fullPath: '/interview'
+      preLoaderRoute: typeof InterviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/history': {
+      id: '/history'
+      path: '/history'
+      fullPath: '/history'
+      preLoaderRoute: typeof HistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/github': {
+      id: '/github'
+      path: '/github'
+      fullPath: '/github'
+      preLoaderRoute: typeof GithubRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/analytics': {
+      id: '/analytics'
+      path: '/analytics'
+      fullPath: '/analytics'
+      preLoaderRoute: typeof AnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,12 +256,86 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/technical/': {
+      id: '/technical/'
+      path: '/'
+      fullPath: '/technical/'
+      preLoaderRoute: typeof TechnicalIndexRouteImport
+      parentRoute: typeof TechnicalRoute
+    }
+    '/interview/': {
+      id: '/interview/'
+      path: '/'
+      fullPath: '/interview/'
+      preLoaderRoute: typeof InterviewIndexRouteImport
+      parentRoute: typeof InterviewRoute
+    }
+    '/technical/$problemId': {
+      id: '/technical/$problemId'
+      path: '/$problemId'
+      fullPath: '/technical/$problemId'
+      preLoaderRoute: typeof TechnicalProblemIdRouteImport
+      parentRoute: typeof TechnicalRoute
+    }
+    '/interview/session': {
+      id: '/interview/session'
+      path: '/session'
+      fullPath: '/interview/session'
+      preLoaderRoute: typeof InterviewSessionRouteImport
+      parentRoute: typeof InterviewRoute
+    }
   }
 }
 
+interface InterviewRouteChildren {
+  InterviewSessionRoute: typeof InterviewSessionRoute
+  InterviewIndexRoute: typeof InterviewIndexRoute
+}
+
+const InterviewRouteChildren: InterviewRouteChildren = {
+  InterviewSessionRoute: InterviewSessionRoute,
+  InterviewIndexRoute: InterviewIndexRoute,
+}
+
+const InterviewRouteWithChildren = InterviewRoute._addFileChildren(
+  InterviewRouteChildren,
+)
+
+interface TechnicalRouteChildren {
+  TechnicalProblemIdRoute: typeof TechnicalProblemIdRoute
+  TechnicalIndexRoute: typeof TechnicalIndexRoute
+}
+
+const TechnicalRouteChildren: TechnicalRouteChildren = {
+  TechnicalProblemIdRoute: TechnicalProblemIdRoute,
+  TechnicalIndexRoute: TechnicalIndexRoute,
+}
+
+const TechnicalRouteWithChildren = TechnicalRoute._addFileChildren(
+  TechnicalRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AnalyticsRoute: AnalyticsRoute,
+  DashboardRoute: DashboardRoute,
+  GithubRoute: GithubRoute,
+  HistoryRoute: HistoryRoute,
+  InterviewRoute: InterviewRouteWithChildren,
+  ResumeRoute: ResumeRoute,
+  SettingsRoute: SettingsRoute,
+  TechnicalRoute: TechnicalRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
