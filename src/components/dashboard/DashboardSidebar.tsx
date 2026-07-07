@@ -68,10 +68,10 @@ const navItems = [
 
 type DashboardSidebarProps = {
   onNavigate?: () => void;
-  onClose?: () => void;
+  onToggle?: () => void;
 };
 
-export default function DashboardSidebar({ onNavigate, onClose }: DashboardSidebarProps) {
+export default function DashboardSidebar({ onNavigate, onToggle }: DashboardSidebarProps) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   return (
@@ -85,10 +85,10 @@ export default function DashboardSidebar({ onNavigate, onClose }: DashboardSideb
           <BrandIcon />
           <span className="truncate">InterviewAI</span>
         </Link>
-        {onClose && (
+        {onToggle && (
           <button
             type="button"
-            onClick={onClose}
+            onClick={onToggle}
             className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-[rgba(0,0,0,0.08)] text-[#5B5B65] transition-colors hover:bg-[#F5F5F7] hover:text-[#0A0A0A]"
             aria-label="Close sidebar"
           >

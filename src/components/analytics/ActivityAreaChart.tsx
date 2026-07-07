@@ -30,10 +30,10 @@ const tooltipStyle = {
 
 export default function ActivityAreaChart() {
   return (
-    <div className={`${dashCard}`}>
+    <div className={`${dashCard} flex h-full min-h-[440px] flex-col`}>
       <h2 className="font-editorial text-xl tracking-[-0.03em] text-[#0A0A0A]">Weekly Activity</h2>
       <p className="mt-1 text-sm text-[#5B5B65]">Sessions by type over the last 8 weeks</p>
-      <div className="mt-6 h-[240px] w-full sm:h-[260px]">
+      <div className="mt-6 min-h-[320px] flex-1 w-full sm:min-h-[360px]">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={data} margin={{ top: 8, right: 8, left: -20, bottom: 0 }}>
             <defs>

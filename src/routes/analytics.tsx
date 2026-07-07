@@ -23,9 +23,13 @@ function AnalyticsPage() {
           <StatCard label="Streak" value="14 days" trend="Best: 21" />
         </div>
         <ScoreTrendChart />
-        <div className="grid gap-6 lg:grid-cols-3">
-          <div className="lg:col-span-2"><ActivityAreaChart /></div>
-          <CategoryDonutChart />
+        <div className="grid gap-6 lg:grid-cols-3 lg:items-stretch">
+          <div className="h-full lg:col-span-2">
+            <ActivityAreaChart />
+          </div>
+          <div className="h-full">
+            <CategoryDonutChart />
+          </div>
         </div>
         <div className="grid gap-6 lg:grid-cols-2">
           <SkillBubbleChart />

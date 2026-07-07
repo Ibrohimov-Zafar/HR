@@ -30,10 +30,10 @@ function DonutTooltip({
 
 export default function CategoryDonutChart() {
   return (
-    <div className={`${dashCard}`}>
+    <div className={`${dashCard} flex h-full min-h-[440px] flex-col`}>
       <h2 className="font-editorial text-xl tracking-[-0.03em] text-[#0A0A0A]">Session Mix</h2>
       <p className="mt-1 text-sm text-[#5B5B65]">Distribution by interview category</p>
-      <div className="relative mt-4 h-[220px] w-full">
+      <div className="relative mt-4 min-h-[220px] flex-1 w-full">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Pie data={data} cx="50%" cy="50%" innerRadius={58} outerRadius={82} paddingAngle={3} dataKey="value" stroke="none">
